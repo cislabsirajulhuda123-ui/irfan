@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irfan | Personal Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+}
+
+:root {
+    --accent: #c7a6ff;
+    --muted: #999;
+    --surface: #151515;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8,8,8,.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #252525;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span, h1 span, h2 span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #bbb;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    max-width: 1150px;
+    margin: auto;
+    padding: 150px 25px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 650px;
+    animation: appear 1s ease;
+}
+
+.welcome, .section-label {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 90px);
+    line-height: 1.2;
+    margin: 15px 0;
+    letter-spacing: -5px;
+}
+
+.hero h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #ddd;
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 480px;
+    margin: 22px 0;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.primary {
+    background: var(--accent);
+    color: #111;
+}
+
+.primary:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+.secondary {
+    border: 1px solid #555;
+}
+
+.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.social-text {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 60px;
+}
+
+/* PROFILE CARD */
+
+.hero-card {
+    width: 330px;
+    min-height: 380px;
+    flex-shrink: 0;
+    border: 1px solid #383044;
+    border-radius: 18px;
+    background: linear-gradient(145deg,#211a2d,#101010);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 20px 80px rgba(150,100,220,.12);
+    transition: .4s;
+}
+
+.hero-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.card-circle {
+    height: 115px;
+    width: 115px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 65px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 25px;
+}
+
+.hero-card h3 {
+    letter-spacing: 4px;
+    font-size: 22px;
+}
+
+.hero-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.card-line {
+    width: 45px;
+    height: 2px;
+    background: var(--accent);
+    margin: 25px 0;
+}
+
+.hero-card span {
+    color: #aaa;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* COMMON SECTIONS */
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.section h2 {
+    font-size: 40px;
+    margin: 12px 0 45px;
+}
+
+/* ABOUT */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 25px;
+}
+
+.about-box, .info-box, .education-card {
+    background: var(--surface);
+    padding: 35px;
+    border: 1px solid #292929;
+    border-radius: 12px;
+}
+
+.about-box h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.about-box p, .info-box p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.info-box strong {
+    color: white;
+}
+
+/* EDUCATION */
+
+.education-card {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    max-width: 700px;
+    transition: .3s;
+}
+
+.education-card:hover, .skill-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.edu-icon {
+    font-size: 40px;
+}
+
+.education-card h3 {
+    font-size: 21px;
+}
+
+.education-card h4 {
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.education-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.education-card span {
+    color: #888;
+    font-size: 11px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    background: var(--surface);
+    border: 1px solid #292929;
+    border-radius: 10px;
+    padding: 25px 15px;
+    text-align: center;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.skill-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.contact > p:not(.section-label) {
+    color: var(--muted);
+    margin: -25px 0 30px;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #292929;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+footer p {
+    color: #777;
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px) {
+
+    .navbar {
+        padding: 16px 22px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 25px;
+        flex-direction: column;
+        gap: 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 130px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .social-text {
+        margin-top: 35px;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .section {
+        padding: 75px 22px;
+    }
+}
+
+@media(max-width:420px) {
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+<nav class="navbar">
+
+    <a href="#" class="logo">IRFAN<span>.</span></a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+</nav>
+</header>
+
+<!-- HERO SECTION -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="welcome">WELCOME TO MY PERSONAL SPACE</p>
+
+        <h1>Hi, I'm <span>Irfan.</span></h1>
+
+        <h2>BA HRM Student & Future Professional</h2>
+
+        <p class="hero-description">
+            Passionate about people, leadership, communication
+            and building a better professional future.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#about" class="btn primary">Explore More ↗</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+
+        <div class="social-text">
+            LEARNING · GROWING · ACHIEVING
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="card-circle">I</div>
+
+        <h3>IRFAN</h3>
+
+        <p>BA Human Resource Management</p>
+
+        <div class="card-line"></div>
+
+        <span>STUDENT | LEARNER | DREAMER</span>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+    <p class="section-label">GET TO KNOW ME</p>
+
+    <h2>About <span>Me</span></h2>
+
+    <div class="about-content">
+
+        <div class="about-box">
+
+            <h3>A Little About Myself</h3>
+
+            <p>
+                I am Irfan, a BA Human Resource Management student
+                interested in understanding people, organisational
+                behaviour and workplace culture. I believe in
+                continuous learning, personal growth and developing
+                skills for a successful professional career.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <p><strong>Name:</strong> Irfan</p>
+
+            <p><strong>Education:</strong> BA HRM</p>
+
+            <p><strong>Field:</strong> Human Resource Management</p>
+
+            <p><strong>Interests:</strong> Leadership, Communication, Management</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section class="section" id="education">
+
+    <p class="section-label">MY ACADEMIC JOURNEY</p>
+
+    <h2>My <span>Education</span></h2>
+
+    <div class="education-card">
+
+        <div class="edu-icon">🎓</div>
+
+        <div>
+
+            <h3>Bachelor of Arts</h3>
+
+            <h4>Human Resource Management (BA HRM)</h4>
+
+            <p>Undergraduate Student</p>
+
+            <span>Currently Pursuing</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="section" id="skills">
+
+    <p class="section-label">WHAT I AM DEVELOPING</p>
+
+    <h2>My <span>Interests & Skills</span></h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">Communication</div>
+
+        <div class="skill-card">Leadership</div>
+
+        <div class="skill-card">Teamwork</div>
+
+        <div class="skill-card">Human Resource Management</div>
+
+        <div class="skill-card">Problem Solving</div>
+
+        <div class="skill-card">Time Management</div>
+
+    </div>
+
+    <p class="skill-note">
+        These are my areas of interest and skills I aim to develop
+        throughout my academic and professional journey.
+    </p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+    <p class="section-label">LET'S CONNECT</p>
+
+    <h2>Get In <span>Touch</span></h2>
+
+    <p>Have an opportunity or idea to share? Feel free to connect.</p>
+
+    <a href="mailto:yourmail@example.com" class="btn primary">
+        Send Me an Email ↗
+    </a>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <a href="#" class="logo">IRFAN<span>.</span></a>
+
+    <p>© <span id="year"></span> Irfan. All Rights Reserved.</p>
+
+    <p>Designed with purpose.</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+
+const navLinks = document.getElementById("navLinks");
+
+// Mobile menu
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+    menuBtn.textContent =
+        navLinks.classList.contains("active") ? "✕" : "☰";
+
+});
+
+// Close menu after clicking
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+        menuBtn.textContent = "☰";
+
+    });
+
+});
+
+// Automatic copyright year
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
